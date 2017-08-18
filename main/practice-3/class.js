@@ -7,10 +7,15 @@ class Class{
     assignLeader(student){
         if (this.hasStudent(student)){
             this.leader = student.name;
+            if (this.teacher) {
+                this.teacher.notifyLeaderAssigned(student.name + " become Leader of Class " + student.clazz.number);
+            }
             return "Assign team leader successfully.";
         }else {
             return "It is not one of us."
         }
+        console.log('peter10'+this.teacher.name);
+
     }
     appendMember(student){
         this.member = student;
@@ -25,5 +30,9 @@ class Class{
             return false;
         }
     }
+    assignTeacher(teacher){
+        this.teacher = teacher;
+    }
+
 }
 module.exports = Class;

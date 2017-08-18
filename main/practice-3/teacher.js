@@ -4,6 +4,9 @@ class Teacher extends Person{
     constructor(name, age, clazzes, id){
         super(name, age ,id);
         this.clazzes = clazzes;
+        for (let clazz of clazzes) {
+            clazz.assignTeacher(this);
+        }
     }
     introduce(){
         if (this.clazzes.length === 0) {
