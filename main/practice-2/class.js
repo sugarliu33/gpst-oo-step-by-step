@@ -7,6 +7,13 @@ class Class{
     assignLeader(student){
         this.leader = student.name;
     }
+    hasLeader(student){
+        return this.leader && this.leader === student.name;
+    }
+
+
+
 }
-//module.exports = class Class {}
 module.exports = Class;
+//module.exports = class Class {}
+

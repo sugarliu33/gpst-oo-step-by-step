@@ -4,12 +4,14 @@ class Student extends Person{
         super(name, age);
         this.clazz = clazz;
     }
+
     introduce(){
-        if ( this.clazz.leader === this.name){
-            return super.introduce() + " I am a Student. I am Leader of Class " + this.clazz.number + ".";
-        }else {
-            return super.introduce() + " I am a Student. I am at Class " + this.clazz.number + ".";
+        let msg = " I am at Class " + this.clazz.number + ".";
+        if ( this.clazz.hasLeader(this)){
+            msg = " I am Leader of Class " + this.clazz.number + ".";
         }
+        return super.introduce() + " I am a Student."+ msg;
+
     }
 }
 

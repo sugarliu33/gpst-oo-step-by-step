@@ -7,16 +7,21 @@ class Teacher extends Person{
         this.clazzes = clazzes;
     }
     introduce(){
+        let classInfo = 'No Class';
         if (this.clazzes.length === 0) {
-            return super.introduce() + " I am a Teacher. I teach No Class.";
+            return super.introduce() + " I am a Teacher. I teach " + classInfo + '.';
         }else {
-            var classNo = '';
-            for (let obj of this.clazzes) {
-                classNo += obj.number + ',';
-            }
-            classNo = classNo.substring(0, classNo.length - 1);
-            return super.introduce() + " I am a Teacher. I teach Class " + classNo + ".";
+            classInfo = this.clazzes.map(c => c.number).join(',');
+            return super.introduce() + " I am a Teacher. I teach Class " + classInfo + ".";
         }
+        // else {
+        //     let classNo = '';
+        //     for (let obj of this.clazzes) {
+        //         classNo += obj.number + ',';
+        //     }
+        //     classNo = classNo.substring(0, classNo.length - 1);
+        //     return super.introduce() + " I am a Teacher. I teach Class " + classNo + ".";
+        // }
     }
 }
 module.exports = Teacher;
